@@ -1,0 +1,3 @@
+{
+  FNL_ROOT = ./fnl;
+}
