@@ -5,8 +5,7 @@ let
   patchy = import ./patchy.nix pkgs;
 
   nvim-config = (neovimUtils.makeNeovimConfig {
-    # for some cursed reason this has to be included as a plugin.
-    plugins = [ patchy ];
+    plugins = with pkgs.vimPlugins; [ patchy which-key-nvim ];
     wrapRc = false;
   });
 in {
