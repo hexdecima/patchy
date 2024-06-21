@@ -7,19 +7,27 @@ in stdenvNoCC.mkDerivation rec {
   dontUnpack = true; # there's no src, don't unpack.
 
   buildPhase = ''
+    # map $1 to where the Fennel source files are.
+    function map_source {
+      echo "${FNL_ROOT}/$1"
+    }
+    # map $1 to where the compiled Lua is placed in the /nix/store.
+    function map_out {
+      echo "$out/lua/patchy/$1"
+    }
     # recursively compiles all files at FNL_ROOT.
     function compile_fnl {
-      for entry in ${FNL_ROOT}/$1/*; do
-        relfile=$(basename "$entry")
+      for entry in $(map_source "$1/*"); do
+        relentry=$(basename "$entry")
 
         if [[ -f $entry ]]; then
-          filename="''${relfile%.*}"
-          echo "compiled $relfile into lua/patchy/$1/$filename.lua"
-          fennel -c $entry > "$out/lua/patchy/$1/$filename.lua" && echo "compiled '$relfile'."
+          filename="''${relentry%.*}"
+          echo "compiled $relentry into $(map_out \"$filename.lua\")"
+          fennel -c $entry > $(map_out "$1/$filename.lua") && echo "compiled '$relentry'."
 
         elif [[ -d $entry ]]; then
-          mkdir -p "$out/lua/patchy/$relfile"
-          compile_fnl "$1/$relfile"
+          mkdir -p $(map_out $relentry)
+          compile_fnl "$1/$relentry"
         fi
       done
     }
