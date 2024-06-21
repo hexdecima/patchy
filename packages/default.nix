@@ -5,10 +5,11 @@ let
   patchy = import ./patchy.nix pkgs;
 
   nvim-config = (neovimUtils.makeNeovimConfig {
-    plugins = with pkgs.vimPlugins; [ patchy which-key-nvim ];
+    plugins = with pkgs.vimPlugins; [ patchy which-key-nvim catppuccin-nvim ];
     wrapRc = false;
   });
 in {
+  # for debugging the compiled config.
   inherit patchy;
 
   # see: https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/editors/neovim/wrapper.nix

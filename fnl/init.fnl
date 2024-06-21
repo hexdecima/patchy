@@ -1,4 +1,5 @@
 (require :patchy/maps)
+(require :patchy/ui)
 
 (set vim.opt.nu true)
 (set vim.opt.nuw 2)
