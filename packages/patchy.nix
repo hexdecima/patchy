@@ -1,7 +1,7 @@
 { stdenvNoCC, fennel, coreutils, ... }:
 let inherit (import ../constants.nix) FNL_ROOT;
-in stdenvNoCC.mkDerivation rec {
-  pname = "patchy-${version}";
+in stdenvNoCC.mkDerivation {
+  pname = "patchy";
   version = "config";
   nativeBuildInputs = [ coreutils fennel ];
   dontUnpack = true; # there's no src, don't unpack.
@@ -22,11 +22,10 @@ in stdenvNoCC.mkDerivation rec {
 
         if [[ -f $entry ]]; then
           filename="''${relentry%.*}"
-          echo "compiled $relentry into $(map_out \"$filename.lua\")"
           fennel -c $entry > $(map_out "$1/$filename.lua") && echo "compiled '$relentry'."
 
         elif [[ -d $entry ]]; then
-          mkdir -p $(map_out $relentry)
+          mkdir -p $(map_out $1/$relentry)
           compile_fnl "$1/$relentry"
         fi
       done
