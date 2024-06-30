@@ -1,14 +1,16 @@
-{ inputs, wrapNeovimUnstable, neovimUtils, system, ... }@pkgs:
+{ inputs, wrapNeovimUnstable, neovimUtils, system, vimPlugins, ... }@pkgs:
 let
   nightly = inputs.nightly.packages.${system}.default;
 
   patchy = import ./patchy.nix pkgs;
 
+  plugins = (with vimPlugins; [ patchy which-key-nvim catppuccin-nvim nvim-lspconfig ]);
+
   nvim-config = (neovimUtils.makeNeovimConfig {
-    plugins = with pkgs.vimPlugins; [ patchy which-key-nvim catppuccin-nvim ];
+    inherit plugins;
     wrapRc = false;
   });
-in {
+in rec {
   # for debugging the compiled config.
   inherit patchy;
 
@@ -17,4 +19,5 @@ in {
     generatedWrapperArgs = old.generatedWrapperArgs or [ ]
       ++ [ "--add-flags" "-u ${patchy}/init.lua" ];
   });
+  default = neovim;
 }

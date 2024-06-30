@@ -1,8 +1,8 @@
 (fn set-map [mode map action desc]
    (vim.keymap.set mode map action { :desc desc :noremap true }))
 
-(set-map "n" "<C-d>" "<C-d>zz" "Jump down and centre")
 (set-map "n" "<C-u>" "<C-u>zz" "Jump up and centre")
+(set-map "n" "<C-d>" "<C-d>zz" "Jump down and centre")
 (set-map "n" "G" "Gzz" "Jump to bottom and centre")
 (set-map "n" "<leader>y" "\"+y" "Copy to system clipboard")
 
