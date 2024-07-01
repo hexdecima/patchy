@@ -22,7 +22,7 @@ in stdenvNoCC.mkDerivation {
 
         if [[ -f $entry ]]; then
           filename="''${relentry%.*}"
-          fennel -c $entry > $(map_out "$1/$filename.lua") && echo "compiled '$relentry'."
+          fennel -c $entry > $(map_out "$1/$filename.lua") || (echo "can't compile '$relentry'." && exit 1)
 
         elif [[ -d $entry ]]; then
           mkdir -p $(map_out $1/$relentry)
