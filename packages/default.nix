@@ -10,6 +10,8 @@ let
     catppuccin-nvim
     nvim-lspconfig
     lualine-nvim
+    harpoon2
+    plenary-nvim # required by: harpoon2
   ]);
 
   nvim-config = (neovimUtils.makeNeovimConfig {
