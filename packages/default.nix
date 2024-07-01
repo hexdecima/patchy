@@ -4,7 +4,13 @@ let
 
   patchy = import ./patchy.nix pkgs;
 
-  plugins = (with vimPlugins; [ patchy which-key-nvim catppuccin-nvim nvim-lspconfig ]);
+  plugins = (with vimPlugins; [
+    patchy
+    which-key-nvim
+    catppuccin-nvim
+    nvim-lspconfig
+    lualine-nvim
+  ]);
 
   nvim-config = (neovimUtils.makeNeovimConfig {
     inherit plugins;
