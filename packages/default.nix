@@ -5,13 +5,18 @@ let
   patchy = import ./patchy.nix pkgs;
 
   plugins = (with vimPlugins; [
-    patchy
+    patchy # load this configuration as a plugin. funky, yeah.
     which-key-nvim
     catppuccin-nvim
     nvim-lspconfig
     lualine-nvim
     harpoon2
-    plenary-nvim # required by: harpoon2
+    telescope-nvim
+    telescope-file-browser-nvim
+    telescope-fzf-native-nvim
+    actions-preview-nvim
+    plenary-nvim # required by: harpoon2, telescope-nvim
+    nvim-web-devicons # required by menu stuff i guess?
   ]);
 
   nvim-config = (neovimUtils.makeNeovimConfig {
@@ -26,6 +31,7 @@ in rec {
   neovim = (wrapNeovimUnstable nightly nvim-config).overrideAttrs (old: {
     generatedWrapperArgs = old.generatedWrapperArgs or [ ]
       ++ [ "--add-flags" "-u ${patchy}/init.lua" ];
+    # ++ [ "--set" "NVIM_APPNAME" "patchy"];
   });
   default = neovim;
 }

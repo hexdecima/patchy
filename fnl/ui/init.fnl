@@ -2,3 +2,4 @@
 (require :patchy/ui/which_key)
 (require :patchy/ui/statusline)
 (require :patchy/ui/harpoon)
+(require :patchy/ui/telescope)
