@@ -1,7 +1,7 @@
 (require :patchy/ui/telescope/browser) ;; enable telescope's file browser
 (require :patchy/ui/telescope/fzf) ;; enable faster fuzzy finder
 (local builtin (require :telescope.builtin))
-(fn setn [map action] vim.keymap.set "n" map action)
+(fn setn [map action] (vim.keymap.set "n" map action))
 
 (setn "<leader>ff" builtin.find_files)
 (setn "<leader>fg" builtin.live_grep)

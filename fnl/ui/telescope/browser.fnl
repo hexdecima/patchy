@@ -5,8 +5,11 @@
 (ts.setup { :extensions { :file_browser { :hijack_netrw true }}})
 (ts.load_extension "file_browser")
 
-(fn setn [map action desc] vim.keymaps.set "n" map action { :noremap true :silent true :desc desc })
+(fn setn [map action desc] 
+  (vim.keymap.set "n" map action { :noremap true :silent true :desc desc })
+  )
 (fn show-browser [] (ts.extensions.file_browser.file_browser { :path "%:p:h" }))
-(setn "<leader>pp" (fn [] show-browser) "Show file browser")
+
+(setn "<leader>pp" show-browser "Show file browser")
 (setn "<leader>pv" (fn [] (vim.cmd "vsplit") (show-browser)) "Show file browser and vsplit")
 (setn "<leader>px" (fn [] (vim.cmd "split") (show-browser)) "Show file browser and hsplit")
