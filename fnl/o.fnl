@@ -13,3 +13,5 @@
 (set vim.opt.sidescrolloff 10)
 (set vim.opt.updatetime 1000)
 (set vim.opt.completeopt "menuone,noselect")
+(set vim.opt.undofile true)
+(set vim.opt.undodir (.. (os.getenv "HOME") "/.cache/nvim/undodir"))
