@@ -9,7 +9,8 @@
         (sys: f (nixpkgs.legacyPackages.${sys} // { inherit inputs; }));
     in {
       devShells = eachSystem (pkgs: {
-        default = pkgs.mkShell { buildInputs = with pkgs; [ lua fennel ]; };
+        default =
+          pkgs.mkShell { buildInputs = with pkgs; [ lua fennel just ]; };
       });
 
       packages = eachSystem (pkgs: import ./packages pkgs);
