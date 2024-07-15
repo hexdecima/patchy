@@ -1,19 +1,20 @@
 # ✨⚙️ patchy
-An experimental [Neovim](https://neovim.io) configuration written in [Fennel](https://fennel-lang.org) and built with [Nix](https://nixos.org).
+A minimal, experimental [Neovim](https://neovim.io) configuration written in [Fennel](https://fennel-lang.org) and built with [Nix](https://nixos.org).
 
 ## Usage
-### without installing
-You can try it out by running:
+*This is not only my personal configuration but also a learning project, so you probably shouldn't.*
+
+Try it out without installing with:
 ```sh
 nix run github:comfybyte/patchy -- .
 ```
 ****
-*Everything below assumes you have [flakes](https://wiki.nixos.org/wiki/Flakes) set up.*
+*Everything below assumes you're using [flakes](https://wiki.nixos.org/wiki/Flakes).*
 
 This repository is a flake exposing a configured Neovim as `package.default` or `packages.neovim`
 (currently for `x86_64-linux` and `aarch64-linux`, with the latter untested).
 
-1. Add this repository as an input:
+Firstly, add this repository as an input, like:
 ```nix
 # flake.nix
 {
