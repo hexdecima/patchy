@@ -17,6 +17,7 @@ let
     actions-preview-nvim
     nvim-autopairs
     leap-nvim
+    comment-nvim
     plenary-nvim # required by: harpoon2, telescope-nvim
     nvim-web-devicons # required by menu stuff i guess?
   ]);

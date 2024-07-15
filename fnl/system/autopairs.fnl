@@ -1,2 +1,2 @@
 (local ap (require :nvim-autopairs))
-(ap.setup {})
+(ap.setup)
