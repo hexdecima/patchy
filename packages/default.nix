@@ -15,6 +15,7 @@ let
     telescope-file-browser-nvim
     telescope-fzf-native-nvim
     actions-preview-nvim
+    nvim-autopairs
     plenary-nvim # required by: harpoon2, telescope-nvim
     nvim-web-devicons # required by menu stuff i guess?
   ]);

@@ -4,3 +4,4 @@
 
 (require :patchy/ui) ; ui elements & menus
 (require :patchy/lsp) ; language server configurations
+(require :patchy/system) ; misc non-ui plugins

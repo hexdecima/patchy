@@ -1,0 +1,1 @@
+(require :patchy/system/autopairs)
