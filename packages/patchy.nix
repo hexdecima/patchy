@@ -1,5 +1,5 @@
 { stdenvNoCC, fennel, coreutils, ... }:
-let inherit (import ../constants.nix) FNL_ROOT;
+let FNL_ROOT = ../fnl;
 in stdenvNoCC.mkDerivation {
   pname = "patchy";
   version = "config";
