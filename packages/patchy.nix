@@ -1,38 +1,20 @@
-{ stdenvNoCC, fennel, coreutils, ... }:
-let FNL_ROOT = ../fnl;
+{ stdenvNoCC, ... }@pkgs:
+let
+  compileFennel = import ../helpers/compile-fennel pkgs;
+  compiledLua = compileFennel { source = ../fnl; };
 in stdenvNoCC.mkDerivation {
   pname = "patchy";
   version = "config";
-  nativeBuildInputs = [ coreutils fennel ];
-  dontUnpack = true; # there's no src, don't unpack.
+  dontUnpack = true;
+  dontInstall = true;
 
   buildPhase = ''
-    # map $1 to where the Fennel source files are.
-    function map_source {
-      echo "${FNL_ROOT}/$1"
-    }
-    # map $1 to where the compiled Lua is placed in the /nix/store.
-    function map_out {
-      echo "$out/lua/patchy/$1"
-    }
-    # recursively compiles all files at FNL_ROOT.
-    function compile_fnl {
-      for entry in $(map_source "$1/*"); do
-        relentry=$(basename "$entry")
+    runHook preBuild
 
-        if [[ -f $entry ]]; then
-          filename="''${relentry%.*}"
-          fennel -c $entry > $(map_out "$1/$filename.lua") || (echo "can't compile '$relentry'." && exit 1)
-
-        elif [[ -d $entry ]]; then
-          mkdir -p $(map_out $1/$relentry)
-          compile_fnl "$1/$relentry"
-        fi
-      done
-    }
-
-    mkdir -p $out/lua/patchy
+    mkdir -p "$out/lua/patchy"
     echo -e "require \"patchy\"" > $out/init.lua
-    compile_fnl ""
+    cp -r ${compiledLua}/* "$out/lua/patchy"
+
+    runHook postBuild
   '';
 }
