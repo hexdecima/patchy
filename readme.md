@@ -4,15 +4,12 @@ A minimal, experimental [Neovim](https://neovim.io) configuration written in [Fe
 ## Usage
 *This is not only my personal configuration but also a learning project, so you probably shouldn't.*
 
-Try it out without installing with:
+Trying out without installing:
 ```sh
 nix run github:comfybyte/patchy -- .
 ```
 ****
 *Everything below assumes you're using [flakes](https://wiki.nixos.org/wiki/Flakes).*
-
-This repository is a flake exposing a configured Neovim as `package.default` or `packages.neovim`
-(currently for `x86_64-linux` and `aarch64-linux`, with the latter untested).
 
 Firstly, add this repository as an input, like:
 ```nix
@@ -22,8 +19,7 @@ Firstly, add this repository as an input, like:
 }
 ```
 
-### with NixOS
-2. Add it to your system packages:
+Then add it to your system packages:
 ```nix
 # configuration.nix
 { inputs, system, ... }: {
@@ -33,15 +29,5 @@ Firstly, add this repository as an input, like:
 }
 ```
 
-### with [Home Manager](https://github.com/nix-community/home-manager)
-2. Add it to your home packages:
-```nix
-{ inputs, system, ... }: {
-    home.packages = [
-        inputs.patchy.packages.${system}.default
-    ];
-}
-```
-
-### without Nix
-That's a to-do.
+## To-do
+- [ ] Build without Nix.

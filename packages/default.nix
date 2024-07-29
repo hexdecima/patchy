@@ -7,7 +7,7 @@ let
   plugins = (with vimPlugins; [
     patchy # load this configuration as a plugin. funky, yeah.
     which-key-nvim
-    catppuccin-nvim
+    zenbones-nvim
     nvim-lspconfig
     lualine-nvim
     harpoon2
@@ -18,6 +18,7 @@ let
     nvim-autopairs
     leap-nvim
     comment-nvim
+    lush-nvim # required by: zenbones-nvim
     plenary-nvim # required by: harpoon2, telescope-nvim
     nvim-web-devicons # required by menu stuff i guess?
   ]);

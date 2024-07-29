@@ -1,3 +1,3 @@
-(local cpc (require :catppuccin))
-(cpc.setup { :flavour "macchiato" :transparent_background true :no_italic true })
-(vim.cmd.colorscheme "catppuccin")
+(set vim.g.zenburned_transparent_background true)
+(set vim.g.zenburned_italic_comments false)
+(vim.cmd.colorscheme "zenburned")
