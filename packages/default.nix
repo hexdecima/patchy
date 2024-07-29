@@ -18,6 +18,8 @@ let
     nvim-autopairs
     leap-nvim
     comment-nvim
+    fidget-nvim
+    vim-fugitive
     lush-nvim # required by: zenbones-nvim
     plenary-nvim # required by: harpoon2, telescope-nvim
     nvim-web-devicons # required by menu stuff i guess?
