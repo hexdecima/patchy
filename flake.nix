@@ -10,7 +10,7 @@
     in {
       devShells = eachSystem (pkgs: {
         default =
-          pkgs.mkShell { buildInputs = with pkgs; [ lua fennel just ]; };
+          pkgs.mkShell { buildInputs = with pkgs; [ lua fennel just fennel-ls lua-language-server nil ]; };
       });
 
       packages = eachSystem (pkgs: import ./packages pkgs);

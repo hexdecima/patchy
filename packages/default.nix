@@ -20,8 +20,20 @@ let
     comment-nvim
     fidget-nvim
     vim-fugitive
+    nvim-surround
+
+    nvim-cmp
+    luasnip
+    cmp_luasnip
+    cmp-path # please pick one casing ffs
+    cmp-nvim-lua
+    cmp-nvim-lsp
+    cmp-git
+    cmp-cmdline
+    cmp-buffer
+
     lush-nvim # required by: zenbones-nvim
-    plenary-nvim # required by: harpoon2, telescope-nvim
+    plenary-nvim # required by: harpoon2, telescope-nvim, nvim-cmp
     nvim-web-devicons # required by menu stuff i guess?
   ]);
 

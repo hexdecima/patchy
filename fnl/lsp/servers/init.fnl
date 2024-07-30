@@ -1,12 +1,13 @@
-(local lsp (require :lspconfig))
-(local on-attach (require :patchy/lsp/on_attach))
+(require :patchy/cmp) ;; setup completion before lsp.
 
-(lsp.lua_ls.setup { :on_attach on-attach })
-(lsp.fennel_ls.setup { :on_attach on-attach })
-(lsp.rust_analyzer.setup { :on_attach on-attach })
-(lsp.taplo.setup { :on_attach on-attach })
-(lsp.nil_ls.setup { :on_attach on-attach })
-(lsp.gleam.setup { :on_attach on-attach })
-(lsp.clangd.setup { :on_attach on-attach })
-(lsp.html.setup { :on_attach on-attach })
-(lsp.tsserver.setup { :on_attach on-attach })
+(local lsp (require :lspconfig))
+(local on_attach (require :patchy/lsp/on_attach))
+(local cmp (require :cmp_nvim_lsp))
+(local capabilities (cmp.default_capabilities))
+
+(fn lsp_setup [server_name]
+  ((. (. lsp server_name) "setup") { : on_attach : capabilities }))
+
+(local servers ["lua_ls" "fennel_ls" "rust_analyzer" "taplo" "nil_ls" "gleam" "clangd" "html" "tsserver"])
+(each [_ server (ipairs servers)]
+  (lsp_setup server))
