@@ -1,10 +1,14 @@
-{ inputs, wrapNeovimUnstable, neovimUtils, system, vimPlugins, ... }@pkgs:
+{ inputs, wrapNeovimUnstable, neovimUtils, system, vimPlugins, lib, ... }@pkgs:
 let
   nightly = inputs.nightly.packages.${system}.default;
 
   patchy = import ./patchy.nix pkgs;
 
-  plugins = (with vimPlugins; [
+  plugins = (
+  let
+    filterDrvs = set: builtins.filter (v: lib.isDerivation v) (builtins.attrValues set);
+  in
+  with vimPlugins; [
     patchy # load this configuration as a plugin. funky, yeah.
     which-key-nvim
     zenbones-nvim
@@ -32,10 +36,12 @@ let
     cmp-cmdline
     cmp-buffer
 
+    nvim-treesitter
+
     lush-nvim # required by: zenbones-nvim
     plenary-nvim # required by: harpoon2, telescope-nvim, nvim-cmp
     nvim-web-devicons # required by menu stuff i guess?
-  ]);
+  ] ++ (filterDrvs nvim-treesitter-parsers));
 
   nvim-config = (neovimUtils.makeNeovimConfig {
     inherit plugins;
