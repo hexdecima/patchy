@@ -28,6 +28,7 @@ let
 
     nvim-cmp
     luasnip
+    friendly-snippets
     cmp_luasnip
     cmp-path # please pick one casing ffs
     cmp-nvim-lua
