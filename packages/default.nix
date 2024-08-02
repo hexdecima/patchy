@@ -38,6 +38,7 @@ let
     cmp-buffer
 
     nvim-treesitter
+    lsp-inlayhints-nvim
 
     lush-nvim # required by: zenbones-nvim
     plenary-nvim # required by: harpoon2, telescope-nvim, nvim-cmp
