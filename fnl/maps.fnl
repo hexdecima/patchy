@@ -1,12 +1,16 @@
-(fn set-map [mode map action desc]
-   (vim.keymap.set mode map action { :desc desc :noremap true }))
+(fn setmap [mode map action]
+  (vim.keymap.set mode map action { :noremap true }))
+(fn setn [map action]
+  (setmap "n" map action))
+(fn setv [map action]
+  (setmap "v" map action))
 
-(set-map "n" "<C-u>" "<C-u>zz" "Jump up and centre")
-(set-map "n" "<C-d>" "<C-d>zz" "Jump down and centre")
-(set-map "n" "G" "Gzz" "Jump to bottom and centre")
-(set-map "n" "<leader>y" "\"+y" "Copy to system clipboard")
+(setn "<C-u>" "<C-u>zz")
+(setn "<C-d>" "<C-d>zz")
+(setn "G" "Gzz")
+(setn "<leader>y" "\"+y" "Copy to system clipboard")
+(setn "<leader>ft" (fn [] (vim.lsp.buf.format)))
 
-(set-map "v" "<leader>y" "\"+y" "Copy to system clipboard")
-(set-map "v" "K" ":m '<-2<CR>gv=gv" "Shift selection 1 line up")
-(set-map "v" "J" ":m '>+1<CR>gv=gv" "Shift selection 1 line down")
-nil
+(setv "<leader>y" "\"+y")
+(setv "K" ":m '<-2<CR>gv=gv")
+(setv "J" ":m '>+1<CR>gv=gv")

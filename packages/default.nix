@@ -10,7 +10,6 @@ let
   in
   with vimPlugins; [
     patchy # load this configuration as a plugin. funky, yeah.
-    which-key-nvim
     zenbones-nvim
     nvim-lspconfig
     lualine-nvim
