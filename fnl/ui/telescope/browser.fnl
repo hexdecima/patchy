@@ -2,7 +2,10 @@
 (set vim.g.loaded_netrwPlugin 1)
 
 (local ts (require :telescope))
-(ts.setup { :extensions { :file_browser { :hijack_netrw true }}})
+(ts.setup { :extensions { :file_browser { 
+          :hijack_netrw true 
+          :respect_gitignore false
+          }}})
 (ts.load_extension "file_browser")
 
 (fn setn [map action desc] 
