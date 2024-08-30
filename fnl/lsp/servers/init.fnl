@@ -8,6 +8,6 @@
 (fn lsp_setup [server_name]
   ((. (. lsp server_name) "setup") { : on_attach : capabilities }))
 
-(local servers ["lua_ls" "fennel_ls" "rust_analyzer" "taplo" "nil_ls" "gleam" "clangd" "html" "tsserver"])
+(local servers ["lua_ls" "fennel_ls" "rust_analyzer" "taplo" "nil_ls" "gleam" "clangd" "html" "cssls" "tsserver"])
 (each [_ server (ipairs servers)]
   (lsp_setup server))
