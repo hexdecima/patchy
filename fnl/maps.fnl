@@ -9,7 +9,7 @@
 (setn "<C-d>" "<C-d>zz")
 (setn "G" "Gzz")
 (setn "<leader>y" "\"+y" "Copy to system clipboard")
-(setn "<leader>ft" (fn [] (vim.lsp.buf.format)))
+; (setn "<leader>ft" (fn [] (vim.lsp.buf.format)))
 
 (setv "<leader>y" "\"+y")
 (setv "K" ":m '<-2<CR>gv=gv")

@@ -9,8 +9,18 @@
         (sys: f (nixpkgs.legacyPackages.${sys} // { inherit inputs; }));
     in {
       devShells = eachSystem (pkgs: {
-        default =
-          pkgs.mkShell { buildInputs = with pkgs; [ lua fennel just fennel-ls lua-language-server nil ]; };
+        default = pkgs.mkShell {
+          buildInputs = with pkgs; [
+            lua
+            fennel
+            just
+            fennel-ls
+            lua-language-server
+            nil
+            fnlfmt
+            nixfmt-classic
+          ];
+        };
       });
 
       packages = eachSystem (pkgs: import ./packages pkgs);
