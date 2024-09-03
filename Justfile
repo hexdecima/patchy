@@ -5,4 +5,7 @@ build:
   nix build .#
 
 test:
-  nix run .# -- .
+  git add . && nix run .# -- .
+
+fmt:
+  treefmt

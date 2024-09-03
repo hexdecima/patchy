@@ -4,11 +4,11 @@ let
 
   patchy = import ./patchy.nix pkgs;
 
-  plugins = (
-  let
-    filterDrvs = set: builtins.filter (v: lib.isDerivation v) (builtins.attrValues set);
-  in
-  with vimPlugins; [
+  plugins = (let
+    filterDrvs = set:
+      builtins.filter (v: lib.isDerivation v) (builtins.attrValues set);
+  in with vimPlugins;
+  [
     patchy # load this configuration as a plugin. funky, yeah.
     zenbones-nvim
     nvim-lspconfig

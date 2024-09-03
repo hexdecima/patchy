@@ -1,0 +1,8 @@
+[formatter.nixfmt]
+command = "nixfmt"
+includes = [ "*/**/*.nix" ]
+
+[formatter.fnlfmt]
+command = "fnlfmt"
+options = [ "--fix" ]
+includes = [ "*/**/*.fnl" ]

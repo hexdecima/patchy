@@ -11,14 +11,16 @@
       devShells = eachSystem (pkgs: {
         default = pkgs.mkShell {
           buildInputs = with pkgs; [
+            just
+            treefmt
             lua
             fennel
-            just
             fennel-ls
             lua-language-server
             nil
             fnlfmt
             nixfmt-classic
+            taplo
           ];
         };
       });
