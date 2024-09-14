@@ -11,6 +11,7 @@ let
   [
     patchy # load this configuration as a plugin. funky, yeah.
     zenbones-nvim
+    poimandres-nvim
     nvim-lspconfig
     lualine-nvim
     harpoon2
