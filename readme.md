@@ -6,7 +6,7 @@ A minimal, experimental [Neovim](https://neovim.io) configuration written in [Fe
 
 Trying out without installing:
 ```sh
-nix run github:comfybyte/patchy -- .
+nix run github:mtlhrt/patchy -- .
 ```
 ****
 *Everything below assumes you're using [flakes](https://wiki.nixos.org/wiki/Flakes).*
@@ -15,7 +15,7 @@ Firstly, add this repository as an input, like:
 ```nix
 # flake.nix
 {
-    inputs.patchy.url = "github:comfybyte/patchy";
+    inputs.patchy.url = "github:mtlhrt/patchy";
 }
 ```
 
