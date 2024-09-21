@@ -4,3 +4,4 @@
 (require :patchy/system/fugitive)
 (require :patchy/system/surround)
 (require :patchy/system/treesitter)
+(require :patchy/system/markdown_preview)

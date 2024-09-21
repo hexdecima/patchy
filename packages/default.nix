@@ -25,6 +25,7 @@ let
     fidget-nvim
     vim-fugitive
     nvim-surround
+    markdown-preview-nvim
 
     nvim-cmp
     luasnip
