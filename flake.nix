@@ -1,6 +1,4 @@
 {
-  description = "comfybyte's experimental Neovim configuration.";
-
   outputs = { nixpkgs, ... }@inputs:
     let
       systems = [ "x86_64-linux" "aarch64-linux" ];
@@ -28,8 +26,10 @@
       packages = eachSystem (pkgs: import ./packages pkgs);
     };
 
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
-  inputs.nightly.url = "github:nix-community/neovim-nightly-overlay/master";
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
+    nightly.url = "github:nix-community/neovim-nightly-overlay/master";
+  };
 
   nixConfig = {
     substituters =
