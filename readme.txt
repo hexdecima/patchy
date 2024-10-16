@@ -1,4 +1,4 @@
-this repository contains my Neovim configuration, writen in Fennel and currently built with Nix.
+my Neovim configuration, writen in Fennel and currently built with Nix.
 
 # usage
 a Nix derivation containing a wrapped Neovim is exposed as `packages.${system}.default` (or neovim),
@@ -7,6 +7,3 @@ it currently conflicts with any other package providing a `neovim` binary, since
 
 # to-do
 - implement a generic build (i.e. don't use Nix)
-
-# license
-no.

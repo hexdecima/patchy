@@ -9,7 +9,7 @@ let
       builtins.filter (v: lib.isDerivation v) (builtins.attrValues set);
   in with vimPlugins;
   [
-    patchy # load this configuration as a plugin. funky, yeah.
+    patchy
     zenbones-nvim
     poimandres-nvim
     nvim-lspconfig
