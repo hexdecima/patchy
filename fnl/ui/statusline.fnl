@@ -1,2 +1,1 @@
-(local ll (require :lualine))
-(ll.setup {})
+((. (require :lualine) :setup))
