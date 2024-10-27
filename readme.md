@@ -1,9 +1,8 @@
-my Neovim configuration, written in Fennel and built with Nix.
+my personal Neovim configuration, written in Fennel and built with Nix.
 
 ## usage
 a Nix derivation containing a wrapped Neovim is exposed as `packages.${system}.default` (or neovim),
 just drop that inside `environment.systemPackages` or `home.packages` and rebuild.
-it currently conflicts with any other package providing a `neovim` binary, since I haven't renamed it (yet).
 
 ## to-do
 - implement a generic build (i.e. don't use Nix)
