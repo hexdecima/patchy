@@ -37,7 +37,6 @@ let
     cmp-git
     cmp-cmdline
     cmp-buffer
-    formatter-nvim
 
     nvim-treesitter
     lsp-inlayhints-nvim

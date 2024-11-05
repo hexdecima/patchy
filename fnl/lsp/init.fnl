@@ -1,4 +1,4 @@
 (require :patchy/lsp/servers)
 (require :patchy/lsp/fidget)
 (require :patchy/lsp/inlayhints)
-(require :patchy/lsp/formatter)
+(require :patchy/lsp/formatting)
