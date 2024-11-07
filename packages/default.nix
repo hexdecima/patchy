@@ -26,6 +26,7 @@ let
     vim-fugitive
     nvim-surround
     markdown-preview-nvim
+    oil-nvim
 
     nvim-cmp
     luasnip

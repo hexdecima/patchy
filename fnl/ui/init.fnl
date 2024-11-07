@@ -2,3 +2,4 @@
 (require :patchy/ui/statusline)
 (require :patchy/ui/harpoon)
 (require :patchy/ui/telescope)
+(require :patchy/ui/oil)

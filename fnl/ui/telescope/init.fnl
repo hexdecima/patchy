@@ -1,4 +1,4 @@
-(require :patchy/ui/telescope/browser)
+; (require :patchy/ui/telescope/browser)
 
 ;; enable telescope's file browser
 (require :patchy/ui/telescope/fzf)
@@ -16,4 +16,5 @@
 (setn :<leader>o builtin.oldfiles)
 
 (local ts (require :telescope))
-(ts.setup {:extensions {:file_browser {:hijack_netrw true}}})
+; (ts.setup {:extensions {:file_browser {:hijack_netrw true}}})
+(ts.setup {})
