@@ -9,7 +9,7 @@
 
 (local rustfmt :rustfmt)
 (local nixfmt :nixfmt)
-(local fnlfmt "fntfmt --fix")
+(local fnlfmt "fnlfmt --fix")
 
 (fn format_file [filename]
   (local ext (get_file_extension filename))
