@@ -11,7 +11,7 @@ let
   [
     patchy
     zenbones-nvim
-    poimandres-nvim
+    nightfox-nvim
     nvim-lspconfig
     lualine-nvim
     harpoon2
