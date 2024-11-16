@@ -8,7 +8,9 @@
 (local capabilities (cmp.default_capabilities))
 
 (fn lsp_setup [server_name]
-  ((. (. lsp server_name) :setup) {: on_attach : capabilities}))
+  ((. (. lsp server_name) :setup) {: on_attach
+                                   : capabilities
+                                   :settings {:rust_analyzer {:check {:allTargets false}}}}))
 
 (local servers [:lua_ls
                 :fennel_ls
@@ -21,6 +23,6 @@
                 :cssls
                 :tsserver
                 :bashls])
+
 (each [_ server (ipairs servers)]
   (lsp_setup server))
-
