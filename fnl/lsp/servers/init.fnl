@@ -26,3 +26,15 @@
 
 (each [_ server (ipairs servers)]
   (lsp_setup server))
+
+;; workaround for https://github.com/neovim/neovim/issues/30985
+(local methods [:textDocument/diagnostic :workspace/diagnostic])
+(each [_ method (ipairs methods)]
+  (local default (. vim.lsp.handlers method))
+  (tset vim.lsp.handlers method (fn [err result context config]
+                                  (when (and (= err nil) (not= err.code -32802))
+                                    (default err
+                                      result
+                                      context
+                                      config)))))
+nil
