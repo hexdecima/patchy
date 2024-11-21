@@ -32,9 +32,11 @@
 (each [_ method (ipairs methods)]
   (local default (. vim.lsp.handlers method))
   (tset vim.lsp.handlers method (fn [err result context config]
-                                  (when (and (= err nil) (not= err.code -32802))
+                                  (when (and (not= err nil)
+                                             (not= err.code -32802))
                                     (default err
                                       result
                                       context
                                       config)))))
+
 nil
