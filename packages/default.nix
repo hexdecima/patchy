@@ -10,8 +10,8 @@ let
   in with vimPlugins;
   [
     patchy
-    zenbones-nvim
     nightfox-nvim
+    oxocarbon-nvim
     nvim-lspconfig
     lualine-nvim
     harpoon2
