@@ -22,7 +22,8 @@
                 :html
                 :cssls
                 :tsserver
-                :bashls])
+                :bashls
+                :nushell])
 
 (each [_ server (ipairs servers)]
   (lsp_setup server))
