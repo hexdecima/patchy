@@ -10,10 +10,7 @@
 (local rustfmt :rustfmt)
 (local nixfmt :nixfmt)
 (local fnlfmt "fnlfmt --fix")
-(local nushell "nu --lsp")
-(local tsls "typescript-language-server --stdio")
-(local html "vscode-html-language-server --stdio")
-(local css "vscode-css-language-server --stdio")
+(local nushell :nufmt)
 
 (fn format_file [filename]
   (local ext (get_file_extension filename))
@@ -26,16 +23,6 @@
                      fnlfmt
                      :nu
                      nushell
-                     :ts
-                     tsls
-                     :tsx
-                     tsls
-                     :html
-                     html
-                     :htm
-                     html
-                     :css
-                     css
                      ;; add new LSPs here~
                      _
                      nil))
