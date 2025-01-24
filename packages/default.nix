@@ -1,13 +1,12 @@
 { inputs, wrapNeovimUnstable, neovimUtils, system, vimPlugins, lib, ... }@pkgs:
 let
   nightly = inputs.nightly.packages.${system}.default;
-
+  unstable = inputs.unstable.legacyPackages.${system};
   patchy = import ./patchy.nix pkgs;
-
   plugins = (let
     filterDrvs = set:
       builtins.filter (v: lib.isDerivation v) (builtins.attrValues set);
-  in with vimPlugins;
+  in with unstable.vimPlugins;
   [
     patchy
     nightfox-nvim
@@ -27,6 +26,7 @@ let
     nvim-surround
     markdown-preview-nvim
     oil-nvim
+    smear-cursor-nvim
 
     nvim-cmp
     luasnip

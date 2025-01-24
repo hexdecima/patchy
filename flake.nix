@@ -1,10 +1,10 @@
 {
-  outputs = { nixpkgs, ... }@inputs:
+  outputs = { stable, ... }@inputs:
     let
       systems = [ "x86_64-linux" "aarch64-linux" ];
       eachSystem = f:
-        nixpkgs.lib.genAttrs systems
-        (sys: f (nixpkgs.legacyPackages.${sys} // { inherit inputs; }));
+        stable.lib.genAttrs systems
+        (sys: f (stable.legacyPackages.${sys} // { inherit inputs; }));
     in {
       devShells = eachSystem (pkgs: {
         default = pkgs.mkShell {
@@ -27,7 +27,8 @@
     };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
+    stable.url = "github:nixos/nixpkgs/release-24.11";
+    unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nightly.url = "github:nix-community/neovim-nightly-overlay/master";
   };
 
