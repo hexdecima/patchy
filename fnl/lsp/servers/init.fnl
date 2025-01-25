@@ -21,7 +21,7 @@
                 :clangd
                 :html
                 :cssls
-                :tsserver
+                :ts_ls
                 :bashls
                 :nushell])
 
