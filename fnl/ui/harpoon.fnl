@@ -11,4 +11,3 @@
 (setn :<leader>2 (fn [] (: (hp:list) :select 2)))
 (setn :<leader>3 (fn [] (: (hp:list) :select 3)))
 (setn :<leader>4 (fn [] (: (hp:list) :select 4)))
-
