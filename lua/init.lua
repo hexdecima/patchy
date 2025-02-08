@@ -1,1 +1,1 @@
-vim.notify("meow.")
+require("patchy.editor")

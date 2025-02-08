@@ -1,14 +1,14 @@
-{ inputs, wrapNeovimUnstable, neovimUtils, system, lib, ... }:
+{ inputs, wrapNeovimUnstable, neovimUtils, system, lib, writeText, ... }@pkgs:
 let
-  # filters out everything in `set` that isn't a derivation.
-  # since treesitter parsers (see below) have some junk in it.
-  filterDrvs = set:
-    builtins.filter (v: lib.isDerivation v) (builtins.attrValues set);
   nightly = inputs.nightly.packages.${system}.default;
   unstable = inputs.unstable.legacyPackages.${system};
-  luaSrc = ../lua;
+  patchy = import ./patchy.nix pkgs;
   plugins = (with unstable.vimPlugins;
-    [
+    let
+      treesitter-parsers = builtins.filter (v: lib.isDerivation v)
+        (builtins.attrValues nvim-treesitter-parsers);
+    in [
+      patchy
       oxocarbon-nvim
       nvim-lspconfig
       lualine-nvim
@@ -42,11 +42,14 @@ let
 
       plenary-nvim # required by: harpoon2, telescope-nvim, nvim-cmp
       nvim-web-devicons # required by menu stuff i guess?
-    ] ++ (filterDrvs nvim-treesitter-parsers));
+    ] ++ treesitter-parsers);
   nvim-config = (neovimUtils.makeNeovimConfig { inherit plugins; });
+  initLua = writeText "init.lua" ''
+    require("patchy")
+  '';
   neovim = (wrapNeovimUnstable nightly nvim-config).overrideAttrs (old: {
     generatedWrapperArgs = old.generatedWrapperArgs
-      ++ [ "--add-flags" "-u ${luaSrc}/init.lua" ];
+      ++ [ "--add-flags" "-u ${initLua}" ];
   });
 in {
   inherit neovim;
