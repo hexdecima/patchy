@@ -11,7 +11,7 @@
           buildInputs = with pkgs; [
             just
             treefmt
-            lua
+            luajit
             fennel
             fennel-ls
             lua-language-server
