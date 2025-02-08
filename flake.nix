@@ -29,7 +29,6 @@
   inputs = {
     stable.url = "github:nixos/nixpkgs/release-24.11";
     unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nightly.url = "github:nix-community/neovim-nightly-overlay/master";
   };
 
   nixConfig = {

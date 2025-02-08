@@ -1,6 +1,6 @@
-{ inputs, wrapNeovimUnstable, neovimUtils, system, lib, writeText, ... }@pkgs:
+{ inputs, wrapNeovimUnstable, neovimUtils, system, lib, writeText
+, neovim-unwrapped, ... }@pkgs:
 let
-  nightly = inputs.nightly.packages.${system}.default;
   unstable = inputs.unstable.legacyPackages.${system};
   patchy = import ./patchy.nix pkgs;
   plugins = (with unstable.vimPlugins;
@@ -47,10 +47,11 @@ let
   initLua = writeText "init.lua" ''
     require("patchy")
   '';
-  neovim = (wrapNeovimUnstable nightly nvim-config).overrideAttrs (old: {
-    generatedWrapperArgs = old.generatedWrapperArgs
-      ++ [ "--add-flags" "-u ${initLua}" ];
-  });
+  neovim = (wrapNeovimUnstable neovim-unwrapped nvim-config).overrideAttrs
+    (old: {
+      generatedWrapperArgs = old.generatedWrapperArgs
+        ++ [ "--add-flags" "-u ${initLua}" ];
+    });
 in {
   inherit neovim;
   default = neovim;
