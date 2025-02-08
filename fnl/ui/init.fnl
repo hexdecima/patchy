@@ -1,6 +1,0 @@
-(require :patchy/ui/colourscheme)
-(require :patchy/ui/statusline)
-(require :patchy/ui/harpoon)
-(require :patchy/ui/telescope)
-(require :patchy/ui/oil)
-(require :patchy/ui/smear)
