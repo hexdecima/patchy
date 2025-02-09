@@ -1,8 +1,8 @@
-{ inputs, wrapNeovimUnstable, neovimUtils, system, lib, writeText
-, neovim-unwrapped, ... }@pkgs:
+{ inputs, system, lib, writeText, ... }@pkgs:
 let
   unstable = inputs.unstable.legacyPackages.${system};
   patchy = import ./patchy.nix pkgs;
+  wrapNeovim = import ./wrap-neovim.nix pkgs;
   plugins = (with unstable.vimPlugins;
     let
       treesitter-parsers = builtins.filter (v: lib.isDerivation v)
@@ -43,15 +43,8 @@ let
       plenary-nvim # required by: harpoon2, telescope-nvim, nvim-cmp
       nvim-web-devicons # required by menu stuff i guess?
     ] ++ treesitter-parsers);
-  nvim-config = (neovimUtils.makeNeovimConfig { inherit plugins; });
-  initLua = writeText "init.lua" ''
-    require("patchy")
-  '';
-  neovim = (wrapNeovimUnstable neovim-unwrapped nvim-config).overrideAttrs
-    (old: {
-      generatedWrapperArgs = old.generatedWrapperArgs
-        ++ [ "--add-flags" "-u ${initLua}" ];
-    });
+  luaRc = writeText "init.lua" "require('patchy')";
+  neovim = wrapNeovim { inherit plugins luaRc; };
 in {
   inherit neovim;
   default = neovim;

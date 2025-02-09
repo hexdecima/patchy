@@ -23,7 +23,7 @@
         };
       });
 
-      packages = eachSystem (pkgs: import ./packages pkgs);
+      packages = eachSystem (pkgs: import ./nix/packages.nix pkgs);
     };
 
   inputs = {
