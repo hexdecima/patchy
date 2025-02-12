@@ -1,0 +1,22 @@
+local o = vim.opt
+
+vim.g.mapleader = " "
+o.nu = true
+o.nuw = 2
+o.hlsearch = false
+o.relativenumber = true
+o.tabstop = 2
+o.softtabstop = 2
+o.shiftwidth = 2
+o.expandtab = true
+o.smartindent = true
+o.wrap = false
+o.termguicolors = true
+o.scrolloff = 10
+o.sidescrolloff = 10
+o.updatetime = 1000
+o.completeopt = "menuone,noselect"
+o.undofile = true
+o.undodir = ((os.getenv("HOME") .. "/.cache/nvim/undodir"))
+o.showmode = false
+o.mouse = "" -- disabled.
