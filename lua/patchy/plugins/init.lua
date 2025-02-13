@@ -1,1 +1,5 @@
 require("patchy.plugins.oil")
+require("patchy.plugins.lualine")
+require("patchy.plugins.smear_cursor")
+require("patchy.plugins.harpoon")
+require("patchy.plugins.telescope")

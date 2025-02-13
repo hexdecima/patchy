@@ -1,5 +1,5 @@
 local function set_map(mode, map, action)
-  vim.keymap.set(mode, map, action, { noremap = true; })
+  vim.keymap.set(mode, map, action, { noremap = true; silent = true; })
 end
 
 local function set_n(map, action)
