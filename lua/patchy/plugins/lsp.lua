@@ -45,14 +45,13 @@ local keymaps = {
   ["<leader>e"] = vim.diagnostic.open_float,
 }
 local function on_attach(_, buffer)
-  local bufopts = {
-    noremap = true,
-    silent = true,
-    buffer = buffer
-  }
-
   for map, action in pairs(keymaps) do
-    vim.keymap.set("n", map, action, bufopts)
+    vim.keymap.set("n", map, action, {
+      noremap = true,
+      silent = true,
+      buffer = buffer
+    }
+  )
   end
 end
 local default_setup = {
