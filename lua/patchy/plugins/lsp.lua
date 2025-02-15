@@ -16,9 +16,6 @@ local servers = {
   nil_ls = {
     bin = "nil",
   },
-  gleam = {
-    bin = "gleam"
-  },
   html = {
     bin = "vscode-html-language-server"
   },
@@ -34,6 +31,7 @@ local servers = {
   nushell = {
     bin = "nu"
   },
+  gleam = {},
   taplo = {},
   clangd = {},
 }
