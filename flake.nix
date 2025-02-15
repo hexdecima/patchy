@@ -12,8 +12,7 @@
             just
             treefmt
             luajit
-            fennel
-            fennel-ls
+            stylua
             lua-language-server
             nil
             fnlfmt
