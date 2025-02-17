@@ -26,6 +26,7 @@ let
       markdown-preview-nvim
       oil-nvim
       smear-cursor-nvim
+      nvim-treesitter
 
       nvim-cmp
       luasnip
@@ -37,8 +38,7 @@ let
       cmp-git
       cmp-cmdline
       cmp-buffer
-
-      nvim-treesitter
+      crates-nvim
 
       plenary-nvim # required by: harpoon2, telescope-nvim, nvim-cmp
       nvim-web-devicons # required by menu stuff i guess?
