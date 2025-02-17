@@ -56,15 +56,14 @@ local function on_attach(_, buffer)
 end
 local default_setup = {
   on_attach = on_attach,
-  capabilities = require("cmp_nvim_lsp").default_capabilities,
+  capabilities = require("cmp_nvim_lsp").default_capabilities(),
 }
 
 for server, config in pairs(servers) do
   local bin = config.bin or server
-  local options = {}
-  if config.extra_options ~= nil then
-    options = vim.tbl_extend("force", default_setup, config.extra_options)
-  end
+  local options = (config.extra_options ~= nil)
+    and vim.tbl_extend("force", default_setup, config.extra_options)
+    or default_setup
 
   if vim.fn.executable(bin) == 1 then
     require("lspconfig")[server].setup(options)
