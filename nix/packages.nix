@@ -10,6 +10,7 @@ let
     in [
       patchy
       oxocarbon-nvim
+      rose-pine
       nvim-lspconfig
       lualine-nvim
       harpoon2
