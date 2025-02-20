@@ -14,7 +14,7 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(),
 	},
 	mapping = cmp.mapping.preset.insert({
-		["<c-space>"] = cmp.mapping.complete,
+		["<c-space>"] = cmp.mapping.complete(),
 		["<cr>"] = cmp.mapping.confirm({ select = true }),
 		["<c-p>"] = cmp.mapping.select_prev_item(select),
 		["<c-n>"] = cmp.mapping.select_next_item(select),
