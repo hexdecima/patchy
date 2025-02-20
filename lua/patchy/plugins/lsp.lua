@@ -55,7 +55,7 @@ local function on_attach(_, buffer)
 end
 local default_setup = {
 	on_attach = on_attach,
-	capabilities = require("cmp_nvim_lsp").default_capabilities,
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
 }
 
 for server, config in pairs(servers) do
