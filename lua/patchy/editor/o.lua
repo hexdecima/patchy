@@ -17,6 +17,6 @@ o.sidescrolloff = 10
 o.updatetime = 1000
 o.completeopt = "menuone,noselect"
 o.undofile = true
-o.undodir = ((os.getenv("HOME") .. "/.cache/nvim/undodir"))
+o.undodir = (os.getenv("HOME") .. "/.cache/nvim/undodir")
 o.showmode = false
 o.mouse = "" -- disabled.

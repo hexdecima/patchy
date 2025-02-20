@@ -2,7 +2,6 @@
 command = "nixfmt"
 includes = [ "*/**/*.nix" ]
 
-[formatter.fnlfmt]
-command = "fnlfmt"
-options = [ "--fix" ]
-includes = [ "*/**/*.fnl" ]
+[formatter.stylua]
+command = "stylua"
+includes = [ "*/**/*.lua" ]
