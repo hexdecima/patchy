@@ -1,6 +1,15 @@
 local servers = {
 	lua_ls = {
 		bin = "lua-language-server",
+		extra_options = {
+			settings = {
+				Lua = {
+					runtime = { version = "LuaJIT" },
+					workspace = { library = { vim.env.VIMRUNTIME } },
+					diagnostics = { globals = "vim" },
+				},
+			},
+		},
 	},
 	rust_analyzer = {
 		bin = "rust-analyzer",
@@ -30,6 +39,15 @@ local servers = {
 	},
 	nushell = {
 		bin = "nu",
+	},
+	denols = {
+		bin = "deno",
+	},
+	svelte = {
+		bin = "svelteserver",
+	},
+	dhall_lsp_server = {
+		bin = "dhall-lsp-server",
 	},
 	gleam = {},
 	taplo = {},
