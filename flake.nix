@@ -29,10 +29,4 @@
     stable.url = "github:nixos/nixpkgs/release-24.11";
     unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
-
-  nixConfig = {
-    substituters = [ "https://cache.nixos.org" ];
-    trusted-public-keys =
-      [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
-  };
 }
