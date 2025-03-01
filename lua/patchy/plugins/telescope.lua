@@ -11,4 +11,10 @@ set_n("<leader>fi", builtin.lsp_implementations)
 set_n("<leader>o", builtin.oldfiles)
 
 telescope.load_extension("fzf")
-telescope.setup()
+telescope.setup {
+  pickers = {
+    oldfiles = {
+      only_cwd = true
+    }
+  }
+}
