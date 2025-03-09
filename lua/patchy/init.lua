@@ -1,10 +1,6 @@
 require("patchy.editor")
 require("patchy.plugins")
 
-require("rose-pine").setup({
-	styles = {
-		italic = false,
-		transparency = true,
-	},
-})
-vim.cmd.colorscheme("rose-pine-moon")
+vim.g.nordbones_italic_comments = false
+vim.g.nordbones_transparent_background = true
+vim.cmd.colorscheme("nordbones")

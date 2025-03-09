@@ -3,7 +3,11 @@ let
   unstable = inputs.unstable.legacyPackages.${system};
   patchy = import ./patchy.nix pkgs;
   wrapNeovim = import ./wrap-neovim.nix pkgs;
-  plugins = (with unstable.vimPlugins;
+  plugins = [
+    # needed by zenbones-nvim.
+    # symlink fuckery causes the unstable version to fail building.
+    pkgs.vimPlugins.lush-nvim
+  ] ++ (with unstable.vimPlugins;
     let
       treesitter-parsers = builtins.filter (v: lib.isDerivation v)
         (builtins.attrValues nvim-treesitter-parsers);
@@ -11,6 +15,7 @@ let
       patchy
       oxocarbon-nvim
       rose-pine
+      zenbones-nvim
       nvim-lspconfig
       lualine-nvim
       harpoon2
