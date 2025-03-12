@@ -1,6 +1,9 @@
-{ runCommand, neovim-unwrapped, makeBinaryWrapper, lib, writeText, neovimUtils
-, lua, ... }:
-{ name ? "neovim-${neovim-unwrapped.version}", plugins ? [ ], luaRc }:
+{ runCommand, inputs, makeBinaryWrapper, lib, writeText, neovimUtils, lua
+, system, ... }:
+let
+  unstable = inputs.unstable.legacyPackages.${system};
+  inherit (unstable) neovim-unwrapped;
+in { name ? "neovim-${neovim-unwrapped.version}", plugins ? [ ], luaRc }:
 let
   normalisedPlugins = neovimUtils.normalizePlugins plugins;
   neovimPackage = neovimUtils.normalizedPluginsToVimPackage normalisedPlugins;
