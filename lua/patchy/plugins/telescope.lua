@@ -8,6 +8,16 @@ set_n("<leader>fd", builtin.diagnostics)
 set_n("<leader>fb", builtin.buffers)
 set_n("<leader>fr", builtin.lsp_references)
 set_n("<leader>fi", builtin.lsp_implementations)
+set_n("<leader>fs", function()
+  builtin.lsp_document_symbols {
+    symbols = { "struct", "object", "function", "method", "field" }
+  }
+end)
+set_n("<leader>fo", function()
+  builtin.lsp_document_symbols {
+    symbols = { "struct" }
+  }
+end)
 set_n("<leader>o", builtin.oldfiles)
 
 telescope.load_extension("fzf")
