@@ -1,6 +1,6 @@
 require("patchy.editor")
 require("patchy.plugins")
 
-vim.g.nordbones_italic_comments = false
-vim.g.nordbones_transparent_background = true
-vim.cmd.colorscheme("nordbones")
+vim.g.tokyobones_italic_comments = false
+vim.g.tokyobones_transparent_background = true
+vim.cmd.colorscheme("tokyobones")
