@@ -33,6 +33,7 @@ let
       oil-nvim
       smear-cursor-nvim
       nvim-treesitter
+      presence-nvim
 
       nvim-cmp
       luasnip
