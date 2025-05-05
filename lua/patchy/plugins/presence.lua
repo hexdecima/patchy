@@ -1,7 +1,8 @@
 require("presence").setup {
-  neovim_image_text = "the game",
+  neovim_image_text = "Visual Studio Code",
   main_image = "file",
   show_time = false,
+  blacklist = { ".+/" },
 
   editing_text = "Editing file",
   file_explorer_text = "Browsing files",
