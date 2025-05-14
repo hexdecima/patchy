@@ -49,10 +49,22 @@ local servers = {
 	dhall_lsp_server = {
 		bin = "dhall-lsp-server",
 	},
-  -- TODO: add a `requirements` field for servers that need other binaries.
+	-- TODO: add a `requirements` field for servers that need other binaries.
 	omnisharp = {
-    bin = "OmniSharp"
-  },
+		bin = "OmniSharp",
+		extra_options = {
+			cmd = {
+        "OmniSharp",
+				"-z",
+				"--hostPID",
+				tostring(vim.fn.getpid()),
+				"DotNet:enablePackageRestore=false",
+				"--encoding",
+				"utf-8",
+				"--languageserver",
+			},
+		},
+	},
 	gleam = {},
 	taplo = {},
 	clangd = {},
