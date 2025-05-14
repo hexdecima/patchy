@@ -50,7 +50,9 @@ local servers = {
 		bin = "dhall-lsp-server",
 	},
   -- TODO: add a `requirements` field for servers that need other binaries.
-	omnisharp = {},
+	omnisharp = {
+    bin = "OmniSharp"
+  },
 	gleam = {},
 	taplo = {},
 	clangd = {},
