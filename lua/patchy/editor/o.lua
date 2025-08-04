@@ -1,5 +1,6 @@
 local o = vim.opt
 
+vim.g.omni_sql_no_default_maps = 1
 vim.g.mapleader = " "
 o.nu = true
 o.nuw = 2

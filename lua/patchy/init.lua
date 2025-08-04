@@ -1,6 +1,13 @@
 require("patchy.editor")
 require("patchy.plugins")
 
-vim.g.rosebones_italic_comments = false
-vim.g.rosebones_transparent_background = true
-vim.cmd.colorscheme("rosebones")
+require("silkcircuit").setup {
+  variant = "soft",
+  styles = {
+    comments = { italic = false },
+    functions = { bold = true, italic = false },
+    strings = { italic = false }
+  }
+}
+
+vim.cmd.colorscheme("silkcircuit")

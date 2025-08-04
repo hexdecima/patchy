@@ -1,1 +1,1 @@
-require("smear_cursor").enabled = true
+-- require("smear_cursor").enabled = true

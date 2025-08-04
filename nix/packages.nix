@@ -3,10 +3,21 @@ let
   unstable = inputs.unstable.legacyPackages.${system};
   patchy = import ./patchy.nix pkgs;
   wrapNeovim = import ./wrap-neovim.nix pkgs;
+
+  silkcircuit = pkgs.vimUtils.buildVimPlugin {
+    name = "silkcircuit";
+    src = pkgs.fetchFromGitHub {
+      owner = "hyperb1iss";
+      repo = "silkcircuit-nvim";
+      rev = "913f0829d3a3077d62f96c19690b6f59252c77ed";
+      hash = "sha256-IF4vCi+yYJZKRQv08jFBW4SgUAnQ2y7GYSEe5K8srnI=";
+    };
+  };
   plugins = [
     # needed by zenbones-nvim.
     # symlink fuckery causes the unstable version to fail building.
     pkgs.vimPlugins.lush-nvim
+    silkcircuit
   ] ++ (with unstable.vimPlugins;
     let
       treesitter-parsers = builtins.filter (v: lib.isDerivation v)
