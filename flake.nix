@@ -1,4 +1,9 @@
 {
+  inputs = {
+    stable.url = "github:nixos/nixpkgs/release-25.05";
+    unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+  };
+
   outputs = { stable, ... }@inputs:
     let
       systems = [ "x86_64-linux" "aarch64-linux" ];
@@ -24,9 +29,4 @@
 
       packages = eachSystem (pkgs: import ./nix/packages.nix pkgs);
     };
-
-  inputs = {
-    stable.url = "github:nixos/nixpkgs/release-24.11";
-    unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-  };
 }
