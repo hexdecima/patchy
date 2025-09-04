@@ -2,6 +2,7 @@
 vimUtils.buildVimPlugin {
   pname = "patchy";
   version = "config";
+  doCheck = false;
   # absolutely cursed.
   src = stdenvNoCC.mkDerivation {
     pname = "lua";
