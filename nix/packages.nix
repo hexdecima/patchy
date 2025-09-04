@@ -41,7 +41,6 @@ let
       vim-fugitive
       nvim-surround
       markdown-preview-nvim
-      oil-nvim
       smear-cursor-nvim
       nvim-treesitter
 

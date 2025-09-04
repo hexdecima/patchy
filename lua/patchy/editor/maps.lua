@@ -1,5 +1,8 @@
 local u = require("patchy.utils")
 
+vim.keymap.set("n", "<leader>pp", vim.cmd.Ex, { silent = true })
+vim.keymap.set("n", "<leader>px", vim.cmd.Sex, { silent = true })
+vim.keymap.set("n", "<leader>pv", vim.cmd.Vex, { silent = true })
 u.set_n("<C-u>", "<C-u>zz")
 u.set_n("<C-d>", "<C-d>zz")
 u.set_n("G", "Gzz")
